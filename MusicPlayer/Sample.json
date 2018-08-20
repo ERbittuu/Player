@@ -1,0 +1,25 @@
+{
+    "playlist": [
+         {
+             "thumbURL": "https://www.w3.org/People/mimasa/test/imgformat/img/w3c_home_animation.gif",
+             "musicURL": "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8",
+             "id": "2",
+             "name": "Namstey London",
+             "desc" : "Namstey London movies song play list"
+         },
+         {
+            "thumbURL": "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+            "musicURL": "http://cdn-fms.rbs.com.br/vod/hls_sample1_manifest.m3u8",
+            "id": "1",
+            "name": "Ey watan",
+            "desc" : "Razi movies song play list"
+        },
+        {
+            "thumbURL": "https://homepages.cae.wisc.edu/~ece533/images/barbara.png",
+            "musicURL": "https://tungsten.aaplimg.com/VOD/bipbop_adv_fmp4_example/master.m3u8",
+            "id": "3",
+            "name": "Ye Jawani Hai Dewani",
+            "desc" : "Ye Jawani Hai Dewani movies song play list"
+        }
+    ]
+}
