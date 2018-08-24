@@ -7,7 +7,7 @@ target 'MusicPlayer' do
 
 pod 'SwiftyJSON', '~> 4.0'
 pod 'Kingfisher', '~> 4.8.1'
+pod 'BTNavigationDropdownMenu', :git => 'https://github.com/zkrige/BTNavigationDropdownMenu.git', :inhibit_warnings => true
 
-  # Pods for MusicPlayer
 
 end
