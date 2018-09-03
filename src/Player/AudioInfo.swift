@@ -79,4 +79,32 @@ extension AudioInfo {
             return MPMediaItemArtwork(image: image)
         }
     }
+    
+   static func from(audio : Audio) -> AudioInfo {
+        
+//        var audio: String!
+//        var id: Int!
+//        var name: String!
+//
+//        // audio use
+//        var url: URL!
+//        var title: String = ""
+//        var artist: String = ""
+//        var album: String = ""
+//        var thumbnailImageUrlString: String?
+//        var image: UIImage = #imageLiteral(resourceName: "ArtPlaceholder")
+        
+        let audioInfo = AudioInfo()
+        audioInfo.url = audio.url
+        audioInfo.title = audio.title
+        audioInfo.artist = audio.artist
+        audioInfo.album = audio.artist
+        
+        audioInfo.audio = audio.url.relativeString
+        audioInfo.audio = audio.url.relativeString
+        audioInfo.name = audio.title
+        audioInfo.id = audio.id
+        
+        return audioInfo
+    }
 }

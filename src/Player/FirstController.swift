@@ -26,7 +26,6 @@ class FirstController: UIViewController {
     }
 
     func openSwipePlayer() {
-        miniPlayer.fullScreenPlayer = fullScreenPlayer
 
         if let tabBarController = self.tabBarController {
             tabBarController.popupBar.customBarViewController = miniPlayer
@@ -49,7 +48,24 @@ class FirstController: UIViewController {
         presentPopupBar(withContentViewController: fullScreenPlayer, animated: true, completion: nil)
     }
 
-    @IBAction func playListMusicClicked(_ sender: UIButton) {
-        openSwipePlayer()
+    @IBAction func openSwipePlayerClicked(_ sender: UIButton) {
+        if AudioPlayerManager.shared.isPlaying() {
+            openSwipePlayer()
+        } else {
+            playerLog("AudioPlayerManager not paying any song")
+        }
+    }
+
+    @IBAction func playSongClicked(_ sender: UIButton) {
+        if let audio = DataSource.audioInfoList.first {
+            let audioFile = AudioInfo.from(audio: audio)
+            
+            AudioPlayerManager.shared.playGTAudioInfo(audioInfo: audioFile)
+        }
+        
+    }
+
+    @IBAction func playListSongClicked(_ sender: UIButton) {
+
     }
 }

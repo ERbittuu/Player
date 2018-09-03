@@ -9,25 +9,19 @@
 /* Begin PBXBuildFile section */
 		2D324B83212D5D9000BC19C9 /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D324B82212D5D9000BC19C9 /* FirstController.swift */; };
 		2D324B87212D601A00BC19C9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D324B86212D601A00BC19C9 /* Data.swift */; };
-		2DD19D0E212E821D00233E1C /* Hawayein.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2DD19D0D212E821D00233E1C /* Hawayein.mp3 */; };
-		2DD19D11212EB60F00233E1C /* Blank_Space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2DD19D10212EB60F00233E1C /* Blank_Space.mp3 */; };
 		2DD3B642213D277C000EECCE /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3B640213D277C000EECCE /* MiniPlayer.swift */; };
 		2DD3B645213D2788000EECCE /* FullScreenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */; };
 		2DD3B646213D297D000EECCE /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D324B69212C3C5400BC19C9 /* LNPopupController.framework */; };
 		2DD3B647213D297D000EECCE /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D324B69212C3C5400BC19C9 /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DD3B64A213D29B9000EECCE /* AudioInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3B649213D29B9000EECCE /* AudioInfo.swift */; };
-		8CDCAA4021384FAA004A0B49 /* AudioURLTrack+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3121384FAA004A0B49 /* AudioURLTrack+Metadata.swift */; };
-		8CDCAA4121384FAA004A0B49 /* MediaPlayerTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3221384FAA004A0B49 /* MediaPlayerTrack.swift */; };
 		8CDCAA4221384FAA004A0B49 /* AudioURLTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3321384FAA004A0B49 /* AudioURLTrack.swift */; };
 		8CDCAA4321384FAA004A0B49 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3421384FAA004A0B49 /* AudioTrack.swift */; };
 		8CDCAA4421384FAA004A0B49 /* AVAsset+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3521384FAA004A0B49 /* AVAsset+Metadata.swift */; };
 		8CDCAA4521384FAA004A0B49 /* MPMediaItem+AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3621384FAA004A0B49 /* MPMediaItem+AudioPlayerManager.swift */; };
 		8CDCAA4621384FAA004A0B49 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3821384FAA004A0B49 /* AudioPlayerManager.swift */; };
-		8CDCAA4721384FAA004A0B49 /* AudioPlayerManager+MPMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3921384FAA004A0B49 /* AudioPlayerManager+MPMediaItem.swift */; };
 		8CDCAA4821384FAA004A0B49 /* AudioPlayerManager+RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3A21384FAA004A0B49 /* AudioPlayerManager+RemoteControl.swift */; };
 		8CDCAA4921384FAA004A0B49 /* AudioPlayerManager+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3B21384FAA004A0B49 /* AudioPlayerManager+URL.swift */; };
 		8CDCAA4A21384FAA004A0B49 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3D21384FAA004A0B49 /* Log.swift */; };
-		8CDCAA4B21384FAA004A0B49 /* MediaLibraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3E21384FAA004A0B49 /* MediaLibraryHelper.swift */; };
 		8CDCAA4C21384FAA004A0B49 /* AudioTracksQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDCAA3F21384FAA004A0B49 /* AudioTracksQueue.swift */; };
 		DE394FAE2122F651006B29B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE394FAD2122F651006B29B2 /* AppDelegate.swift */; };
 		DE394FB32122F651006B29B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE394FB12122F651006B29B2 /* Main.storyboard */; };
@@ -53,24 +47,18 @@
 		2D324B69212C3C5400BC19C9 /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LNPopupController.framework; sourceTree = "<group>"; };
 		2D324B82212D5D9000BC19C9 /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		2D324B86212D601A00BC19C9 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		2DD19D0D212E821D00233E1C /* Hawayein.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hawayein.mp3; sourceTree = "<group>"; };
-		2DD19D10212EB60F00233E1C /* Blank_Space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Blank_Space.mp3; sourceTree = "<group>"; };
 		2DD3B640213D277C000EECCE /* MiniPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
 		2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPlayer.swift; sourceTree = "<group>"; };
 		2DD3B649213D29B9000EECCE /* AudioInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInfo.swift; sourceTree = "<group>"; };
 		559C2C8D3A9A78830E779418 /* Pods_MusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CDCAA3121384FAA004A0B49 /* AudioURLTrack+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioURLTrack+Metadata.swift"; sourceTree = "<group>"; };
-		8CDCAA3221384FAA004A0B49 /* MediaPlayerTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerTrack.swift; sourceTree = "<group>"; };
 		8CDCAA3321384FAA004A0B49 /* AudioURLTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioURLTrack.swift; sourceTree = "<group>"; };
 		8CDCAA3421384FAA004A0B49 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		8CDCAA3521384FAA004A0B49 /* AVAsset+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+Metadata.swift"; sourceTree = "<group>"; };
 		8CDCAA3621384FAA004A0B49 /* MPMediaItem+AudioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MPMediaItem+AudioPlayerManager.swift"; sourceTree = "<group>"; };
 		8CDCAA3821384FAA004A0B49 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
-		8CDCAA3921384FAA004A0B49 /* AudioPlayerManager+MPMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioPlayerManager+MPMediaItem.swift"; sourceTree = "<group>"; };
 		8CDCAA3A21384FAA004A0B49 /* AudioPlayerManager+RemoteControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioPlayerManager+RemoteControl.swift"; sourceTree = "<group>"; };
 		8CDCAA3B21384FAA004A0B49 /* AudioPlayerManager+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioPlayerManager+URL.swift"; sourceTree = "<group>"; };
 		8CDCAA3D21384FAA004A0B49 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		8CDCAA3E21384FAA004A0B49 /* MediaLibraryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryHelper.swift; sourceTree = "<group>"; };
 		8CDCAA3F21384FAA004A0B49 /* AudioTracksQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTracksQueue.swift; sourceTree = "<group>"; };
 		DE394FAA2122F651006B29B2 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE394FAD2122F651006B29B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,8 +87,6 @@
 				2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */,
 				2DD3B640213D277C000EECCE /* MiniPlayer.swift */,
 				2D324B82212D5D9000BC19C9 /* FirstController.swift */,
-				2DD19D0D212E821D00233E1C /* Hawayein.mp3 */,
-				2DD19D10212EB60F00233E1C /* Blank_Space.mp3 */,
 				2D324B86212D601A00BC19C9 /* Data.swift */,
 				2DD3B649213D29B9000EECCE /* AudioInfo.swift */,
 			);
@@ -136,30 +122,19 @@
 		8CDCAA2F21384FAA004A0B49 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				8CDCAA3021384FAA004A0B49 /* Track */,
+				8CDCAA3321384FAA004A0B49 /* AudioURLTrack.swift */,
+				8CDCAA3421384FAA004A0B49 /* AudioTrack.swift */,
+				8CDCAA3521384FAA004A0B49 /* AVAsset+Metadata.swift */,
 				8CDCAA3621384FAA004A0B49 /* MPMediaItem+AudioPlayerManager.swift */,
 				8CDCAA3721384FAA004A0B49 /* Player */,
 			);
 			path = Public;
 			sourceTree = "<group>";
 		};
-		8CDCAA3021384FAA004A0B49 /* Track */ = {
-			isa = PBXGroup;
-			children = (
-				8CDCAA3121384FAA004A0B49 /* AudioURLTrack+Metadata.swift */,
-				8CDCAA3221384FAA004A0B49 /* MediaPlayerTrack.swift */,
-				8CDCAA3321384FAA004A0B49 /* AudioURLTrack.swift */,
-				8CDCAA3421384FAA004A0B49 /* AudioTrack.swift */,
-				8CDCAA3521384FAA004A0B49 /* AVAsset+Metadata.swift */,
-			);
-			path = Track;
-			sourceTree = "<group>";
-		};
 		8CDCAA3721384FAA004A0B49 /* Player */ = {
 			isa = PBXGroup;
 			children = (
 				8CDCAA3821384FAA004A0B49 /* AudioPlayerManager.swift */,
-				8CDCAA3921384FAA004A0B49 /* AudioPlayerManager+MPMediaItem.swift */,
 				8CDCAA3A21384FAA004A0B49 /* AudioPlayerManager+RemoteControl.swift */,
 				8CDCAA3B21384FAA004A0B49 /* AudioPlayerManager+URL.swift */,
 			);
@@ -170,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				8CDCAA3D21384FAA004A0B49 /* Log.swift */,
-				8CDCAA3E21384FAA004A0B49 /* MediaLibraryHelper.swift */,
 				8CDCAA3F21384FAA004A0B49 /* AudioTracksQueue.swift */,
 			);
 			path = Private;
@@ -279,9 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE394FB82122F655006B29B2 /* LaunchScreen.storyboard in Resources */,
-				2DD19D0E212E821D00233E1C /* Hawayein.mp3 in Resources */,
 				DE394FB52122F655006B29B2 /* Assets.xcassets in Resources */,
-				2DD19D11212EB60F00233E1C /* Blank_Space.mp3 in Resources */,
 				DE394FB32122F651006B29B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,19 +284,15 @@
 			files = (
 				8CDCAA4A21384FAA004A0B49 /* Log.swift in Sources */,
 				8CDCAA4221384FAA004A0B49 /* AudioURLTrack.swift in Sources */,
-				8CDCAA4B21384FAA004A0B49 /* MediaLibraryHelper.swift in Sources */,
 				2DD3B64A213D29B9000EECCE /* AudioInfo.swift in Sources */,
 				2DD3B645213D2788000EECCE /* FullScreenPlayer.swift in Sources */,
 				2D324B87212D601A00BC19C9 /* Data.swift in Sources */,
 				DE394FAE2122F651006B29B2 /* AppDelegate.swift in Sources */,
 				8CDCAA4521384FAA004A0B49 /* MPMediaItem+AudioPlayerManager.swift in Sources */,
 				8CDCAA4821384FAA004A0B49 /* AudioPlayerManager+RemoteControl.swift in Sources */,
-				8CDCAA4021384FAA004A0B49 /* AudioURLTrack+Metadata.swift in Sources */,
 				2DD3B642213D277C000EECCE /* MiniPlayer.swift in Sources */,
-				8CDCAA4121384FAA004A0B49 /* MediaPlayerTrack.swift in Sources */,
 				8CDCAA4621384FAA004A0B49 /* AudioPlayerManager.swift in Sources */,
 				8CDCAA4321384FAA004A0B49 /* AudioTrack.swift in Sources */,
-				8CDCAA4721384FAA004A0B49 /* AudioPlayerManager+MPMediaItem.swift in Sources */,
 				8CDCAA4921384FAA004A0B49 /* AudioPlayerManager+URL.swift in Sources */,
 				8CDCAA4C21384FAA004A0B49 /* AudioTracksQueue.swift in Sources */,
 				8CDCAA4421384FAA004A0B49 /* AVAsset+Metadata.swift in Sources */,
