@@ -10,6 +10,7 @@ import UIKit
 import LNPopupController
 import AVFoundation
 import MediaPlayer
+import Kingfisher
 
 class MiniPlayer: LNPopupCustomBarViewController {
 
@@ -21,6 +22,8 @@ class MiniPlayer: LNPopupCustomBarViewController {
     @IBOutlet fileprivate weak var albumLabel: UILabel?
 
     @IBOutlet fileprivate weak var timeSlider: UISlider?
+    @IBOutlet fileprivate weak var thumbImage: UIImageView?
+    @IBOutlet fileprivate weak var indicator: UIActivityIndicatorView?
 
     override var wantsDefaultPanGestureRecognizer: Bool {
         get {
@@ -28,6 +31,8 @@ class MiniPlayer: LNPopupCustomBarViewController {
         }
     }
 
+    var changeManually = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +43,6 @@ class MiniPlayer: LNPopupCustomBarViewController {
 
         // Listen to the player state updates. This state is updated if the play, pause or queue state changed.
         AudioPlayerManager.shared.addPlayStateChangeCallback(self, callback: { [weak self] (track: AudioTrack?) in
-
             self?.updateButtonStates()
             self?.updateSongInformation(with: track)
         })
@@ -101,22 +105,53 @@ extension MiniPlayer {
         AudioPlayerManager.shared.forward()
     }
 
-    @IBAction func didChangeTimeSliderValue(_ sender: Any) {
+    @IBAction func didChangeTimeSliderValue(_ sender: UISlider, forEvent event: UIEvent) {
         guard let newProgress = self.timeSlider?.value else {
+            AudioPlayerManager.shared.currentTrack?.showLoder = true
+            play()
+            self.changeManually = false
             return
+        }///
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .began:
+                self.changeManually = true
+                AudioPlayerManager.shared.currentTrack?.showLoder = true
+                AudioPlayerManager.shared.pause()
+                self.playPauseButton?.isSelected = false
+            case .moved:
+                break
+            default:
+                seekPlayer(newProgress: newProgress)
+            }
         }
+    }
+
+    func play() {
+        self.playPauseButton?.isSelected = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            AudioPlayerManager.shared.play()
+            self.changeManually = false
+        }
+    }
+
+    func seekPlayer(newProgress: Float) {
         AudioPlayerManager.shared.seek(toProgress: newProgress)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            AudioPlayerManager.shared.currentTrack?.showLoder = true
+            self.play()
+        }
     }
 
     func initPlaybackTimeViews() {
         self.timeSlider?.value = 0
         self.timeSlider?.maximumValue = 1.0
+        self.indicator?.stopAnimating()
     }
 
     func updateButtonStates() {
         self.rewindButton?.isEnabled = AudioPlayerManager.shared.canRewind()
-        let image = (AudioPlayerManager.shared.isPlaying() == true ? #imageLiteral(resourceName: "pause") : #imageLiteral(resourceName: "music_play"))
-        self.playPauseButton?.setImage(image, for: UIControlState())
+        self.playPauseButton?.isSelected = AudioPlayerManager.shared.isPlaying()
         self.playPauseButton?.isEnabled = AudioPlayerManager.shared.canPlay()
         self.forwardButton?.isEnabled = AudioPlayerManager.shared.canForward()
     }
@@ -124,10 +159,38 @@ extension MiniPlayer {
     func updateSongInformation(with track: AudioTrack?) {
         self.songLabel?.text = "\((track?.nowPlayingInfo?[MPMediaItemPropertyTitle] as? String) ?? "-")"
         self.albumLabel?.text = "\((track?.nowPlayingInfo?[MPMediaItemPropertyAlbumTitle] as? String) ?? "-")"
+        // self.artistLabel?.text = "\((track?.nowPlayingInfo?[MPMediaItemPropertyArtist] as? String) ?? "-")"
         self.updatePlaybackTime(track)
+
+        // music image
+        if let trackData = track,
+            let info = trackData as? AudioURLTrack {
+
+            self.playPauseButton?.isHidden = trackData.showLoder
+
+            if trackData.showLoder {
+                self.indicator?.startAnimating()
+            } else {
+                self.indicator?.stopAnimating()
+            }
+
+            if let image = info.audioInfo?.image {
+                self.thumbImage?.image = image
+            } else {
+                self.thumbImage?.kf.setImage(with: info.audioInfo?.thumbnailImageUrl, placeholder: #imageLiteral(resourceName: "ArtPlaceholder"), options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
+                    info.audioInfo?.image = image
+                    self.thumbImage?.image = image
+                })
+            }
+        }
     }
 
     func updatePlaybackTime(_ track: AudioTrack?) {
-        self.timeSlider?.value = track?.currentProgress() ?? 0
+        if changeManually {
+            return
+        }
+        if let trackData = track, !trackData.showLoder {
+            self.timeSlider?.value = trackData.currentProgress()
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import Kingfisher
 
 class AudioInfo {
 
@@ -20,38 +21,11 @@ class AudioInfo {
     var title: String = ""
     var artist: String = ""
     var album: String = ""
-    var thumbnailImageUrlString: String?
-    var image: UIImage = #imageLiteral(resourceName: "ArtPlaceholder")
+    var thumbnailImageUrl: URL?
+    var image: UIImage?
 
-//    /**
-//     * Instantiate the instance using the passed json values to set the properties values
-//     */
-//    init(fromJson json: JSON!) {
-//        if json.isEmpty {
-//            return
-//        }
-//        audio = json["audio"].stringValue
-//        id = json["id"].intValue
-//        name = json["name"].stringValue
-//
-//        self.url = URL(string: audio!)
-//        self.title = self.name ?? "Unknown"
-//        self.artist = self.name ?? "Unknown"
-//    }
-//
     var albumString: String {
-        return (album.isEmpty || album == "Unknown") ? title : "Unknown"
-    }
-
-    func downloadImage(imageUrl: URL) {
-        DispatchQueue.global().async {
-//            KingfisherManager.shared.retrieveImage(with: imageUrl,
-//                                                   options: nil,
-//                                                   progressBlock: nil,
-//                                                   completionHandler: { image, _, _, _ in
-//                                                    self.image = image ?? #imageLiteral(resourceName: "ArtPlaceholder")
-//            })
-        }
+        return (album.isEmpty || album == "Unknown") ? "Unknown" : title
     }
 }
 
@@ -64,47 +38,55 @@ extension AudioInfo {
         info[MPMediaItemPropertyTitle] = self.title as NSObject?
         info[MPMediaItemPropertyAlbumTitle] = self.albumString as NSObject?
         info[MPMediaItemPropertyArtist] = self.albumString as NSObject?
-        info[MPMediaItemPropertyArtwork] = self.mediaItemArtwork(from: self.image)
+        info[MPMediaItemPropertyArtwork] = self.mediaItemArtwork()
 
         return info
     }
 
-    private func mediaItemArtwork(from image: UIImage) -> MPMediaItemArtwork? {
+    private func mediaItemArtwork() -> MPMediaItemArtwork? {
 
+        let bSize = CGSize(width: 600, height: 600)
         if #available(iOS 10.0, *) {
-            return MPMediaItemArtwork(boundsSize: image.size, requestHandler: { (_: CGSize) -> UIImage in
-                return image
+            return MPMediaItemArtwork(boundsSize: bSize, requestHandler: { (_: CGSize) -> UIImage in
+                if let img = self.image {
+                    return img
+                } else {
+
+                    KingfisherManager.shared.retrieveImage(with: self.thumbnailImageUrl! ,
+                                                           options: nil,
+                                                           progressBlock: nil,
+                                                           completionHandler: { image, _, _, _ in
+                                                            self.image = image
+                                                            MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: self.albumString,
+                                                                                 MPMediaItemPropertyAlbumTitle: self.albumString,
+                                                                                 MPMediaItemPropertyTitle: self.title,
+                                                                                 MPMediaItemPropertyArtwork: MPMediaItemArtwork(boundsSize: bSize, requestHandler: { (_) -> UIImage in
+                                                                                    return self.image ?? UIImage()
+                                                                                 })]
+
+                    })
+                    return UIImage()
+                }
             })
         } else {
-            return MPMediaItemArtwork(image: image)
+            return MPMediaItemArtwork(image: image ?? UIImage())
         }
     }
-    
-   static func from(audio : Audio) -> AudioInfo {
-        
-//        var audio: String!
-//        var id: Int!
-//        var name: String!
-//
-//        // audio use
-//        var url: URL!
-//        var title: String = ""
-//        var artist: String = ""
-//        var album: String = ""
-//        var thumbnailImageUrlString: String?
-//        var image: UIImage = #imageLiteral(resourceName: "ArtPlaceholder")
-        
+
+   static func from(audio: Audio) -> AudioInfo {
+
         let audioInfo = AudioInfo()
         audioInfo.url = audio.url
         audioInfo.title = audio.title
         audioInfo.artist = audio.artist
         audioInfo.album = audio.artist
-        
+        audioInfo.thumbnailImageUrl = URL(string: audio.imageURL)
+
         audioInfo.audio = audio.url.relativeString
         audioInfo.audio = audio.url.relativeString
         audioInfo.name = audio.title
         audioInfo.id = audio.id
-        
+
         return audioInfo
     }
 }

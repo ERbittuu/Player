@@ -57,11 +57,19 @@ open class AudioURLTrack: AudioTrack {
 		super.prepareForPlaying(avPlayerItem)
 		// Listen to the timedMetadata initialization. We can extract the meta data then
 		self.playerItem?.addObserver(self, forKeyPath: Keys.timedMetadata, options: NSKeyValueObservingOptions.initial, context: nil)
+
+        self.playerItem?.addObserver(self, forKeyPath: Keys.playbackBufferEmpty, options: .new, context: nil)
+        self.playerItem?.addObserver(self, forKeyPath: Keys.playbackBufferFull, options: .new, context: nil)
+        self.playerItem?.addObserver(self, forKeyPath: Keys.playbackLikelyToKeepUp, options: .new, context: nil)
 	}
 
 	open override func cleanupAfterPlaying() {
 		// Remove the timedMetadata observer as the AVPlayerItem will be released now
 		self.playerItem?.removeObserver(self, forKeyPath: Keys.timedMetadata, context: nil)
+
+        self.playerItem?.removeObserver(self, forKeyPath: Keys.playbackBufferEmpty, context: nil)
+        self.playerItem?.removeObserver(self, forKeyPath: Keys.playbackBufferFull, context: nil)
+        self.playerItem?.removeObserver(self, forKeyPath: Keys.playbackLikelyToKeepUp, context: nil)
 		super.cleanupAfterPlaying()
 	}
 
@@ -119,6 +127,9 @@ extension AudioURLTrack {
 
 	fileprivate struct Keys {
 		static let timedMetadata = "timedMetadata"
+        static let playbackBufferEmpty = "playbackBufferEmpty"
+        static let playbackBufferFull = "playbackBufferFull"
+        static let playbackLikelyToKeepUp = "playbackLikelyToKeepUp"
 	}
 
 	override open func observeValue(forKeyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
@@ -126,5 +137,23 @@ extension AudioURLTrack {
 			// Extract the meta data if the timedMetadata changed
 			AudioPlayerManager.shared.didUpdateMetadata()
 		}
+
+        if forKeyPath == Keys.playbackBufferEmpty {
+            // Show loader
+            self.showLoder = true
+            AudioPlayerManager.shared.didUpdateMetadata()
+        }
+
+        if forKeyPath == Keys.playbackBufferFull {
+            // hide loader
+            self.showLoder = false
+            AudioPlayerManager.shared.didUpdateMetadata()
+        }
+
+        if forKeyPath == Keys.playbackLikelyToKeepUp {
+            // hide loader
+            self.showLoder = false
+            AudioPlayerManager.shared.didUpdateMetadata()
+        }
 	}
 }

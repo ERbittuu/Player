@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2D324B83212D5D9000BC19C9 /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D324B82212D5D9000BC19C9 /* FirstController.swift */; };
 		2D324B87212D601A00BC19C9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D324B86212D601A00BC19C9 /* Data.swift */; };
+		2D67BAE9213E8DB9007F5CB3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D67BAE8213E8DB9007F5CB3 /* UIView.swift */; };
+		2DC6FAD8213E5A94002BECD2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC6FAD4213E59D3002BECD2 /* Kingfisher.framework */; };
+		2DC6FAD9213E5A94002BECD2 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC6FAD4213E59D3002BECD2 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DD3B642213D277C000EECCE /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3B640213D277C000EECCE /* MiniPlayer.swift */; };
 		2DD3B645213D2788000EECCE /* FullScreenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */; };
 		2DD3B646213D297D000EECCE /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D324B69212C3C5400BC19C9 /* LNPopupController.framework */; };
@@ -36,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2DC6FAD9213E5A94002BECD2 /* Kingfisher.framework in Embed Frameworks */,
 				2DD3B647213D297D000EECCE /* LNPopupController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -47,10 +51,11 @@
 		2D324B69212C3C5400BC19C9 /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LNPopupController.framework; sourceTree = "<group>"; };
 		2D324B82212D5D9000BC19C9 /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		2D324B86212D601A00BC19C9 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2D67BAE8213E8DB9007F5CB3 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2DC6FAD4213E59D3002BECD2 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		2DD3B640213D277C000EECCE /* MiniPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
 		2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPlayer.swift; sourceTree = "<group>"; };
 		2DD3B649213D29B9000EECCE /* AudioInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInfo.swift; sourceTree = "<group>"; };
-		559C2C8D3A9A78830E779418 /* Pods_MusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDCAA3321384FAA004A0B49 /* AudioURLTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioURLTrack.swift; sourceTree = "<group>"; };
 		8CDCAA3421384FAA004A0B49 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		8CDCAA3521384FAA004A0B49 /* AVAsset+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAsset+Metadata.swift"; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC6FAD8213E5A94002BECD2 /* Kingfisher.framework in Frameworks */,
 				2DD3B646213D297D000EECCE /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,7 +92,6 @@
 				8CDCAA2E21384FAA004A0B49 /* Core */,
 				2DD3B644213D2787000EECCE /* FullScreenPlayer.swift */,
 				2DD3B640213D277C000EECCE /* MiniPlayer.swift */,
-				2D324B82212D5D9000BC19C9 /* FirstController.swift */,
 				2D324B86212D601A00BC19C9 /* Data.swift */,
 				2DD3B649213D29B9000EECCE /* AudioInfo.swift */,
 			);
@@ -96,18 +101,10 @@
 		2DD3B63F213D25FB000EECCE /* src */ = {
 			isa = PBXGroup;
 			children = (
-				2D324B69212C3C5400BC19C9 /* LNPopupController.framework */,
+				2D67BAE8213E8DB9007F5CB3 /* UIView.swift */,
 				2D324B7F212D5BB800BC19C9 /* Player */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		73F40F342A0F7C2E6BF48773 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				559C2C8D3A9A78830E779418 /* Pods_MusicPlayer.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8CDCAA2E21384FAA004A0B49 /* Core */ = {
@@ -153,11 +150,12 @@
 		DE394FA12122F651006B29B2 = {
 			isa = PBXGroup;
 			children = (
+				2DC6FAD4213E59D3002BECD2 /* Kingfisher.framework */,
+				2D324B69212C3C5400BC19C9 /* LNPopupController.framework */,
 				2DD3B63F213D25FB000EECCE /* src */,
 				DE394FB12122F651006B29B2 /* Main.storyboard */,
 				DE394FAC2122F651006B29B2 /* MusicPlayer */,
 				DE394FAB2122F651006B29B2 /* Products */,
-				73F40F342A0F7C2E6BF48773 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +170,7 @@
 		DE394FAC2122F651006B29B2 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				2D324B82212D5D9000BC19C9 /* FirstController.swift */,
 				DE394FAD2122F651006B29B2 /* AppDelegate.swift */,
 				DE394FB42122F655006B29B2 /* Assets.xcassets */,
 				DE394FB62122F655006B29B2 /* LaunchScreen.storyboard */,
@@ -282,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D67BAE9213E8DB9007F5CB3 /* UIView.swift in Sources */,
 				8CDCAA4A21384FAA004A0B49 /* Log.swift in Sources */,
 				8CDCAA4221384FAA004A0B49 /* AudioURLTrack.swift in Sources */,
 				2DD3B64A213D29B9000EECCE /* AudioInfo.swift in Sources */,
@@ -448,6 +448,7 @@
 					"$(PROJECT_DIR)/MusicPlayer/Music/VKMusic/Library/Resources/Products/iOS",
 					"$(PROJECT_DIR)/MusicPlayer",
 					"$(PROJECT_DIR)/src",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -476,6 +477,7 @@
 					"$(PROJECT_DIR)/MusicPlayer/Music/VKMusic/Library/Resources/Products/iOS",
 					"$(PROJECT_DIR)/MusicPlayer",
 					"$(PROJECT_DIR)/src",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

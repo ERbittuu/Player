@@ -26,6 +26,18 @@ extension AudioPlayerManager {
         }
     }
 
+    func playGTAudioInfoList(playlist: [AudioInfo]) {
+
+        let newList = playlist.map { (audioInfo) -> AudioURLTrack in
+            if let track = AudioURLTrack(url: audioInfo.url) {
+                track.audioInfo = audioInfo
+                return track
+            }
+            return AudioURLTrack(url: nil)!
+        }
+        self.play(newList, at: 0)
+    }
+
 //    public func play(url urlToPlay: URL?) {
 //        if let track = AudioURLTrack(url: urlToPlay) {
 //            self.play(track)

@@ -258,7 +258,7 @@ open class AudioPlayerManager: NSObject {
 
 	open func seek(toProgress progress: Float) {
 		let progressInSeconds = Int64(progress * (self.currentTrack?.durationInSeconds() ?? 0))
-		let time = CMTimeMake(progressInSeconds, 1)
+        let time = CMTimeMakeWithSeconds(Float64(progressInSeconds), self.player.currentItem?.asset.duration.timescale ?? 1000)
 		self.seek(toTime: time)
 	}
 

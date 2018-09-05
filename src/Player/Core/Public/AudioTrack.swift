@@ -21,6 +21,8 @@ open class AudioTrack: NSObject {
 
 	open var playerItem: AVPlayerItem?
 
+    open var showLoder: Bool = false
+
 	open var nowPlayingInfo: [String: NSObject]?
 
 	// MARK: - Lifecycle

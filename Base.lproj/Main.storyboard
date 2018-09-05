@@ -95,8 +95,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-Yw-Ntp">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oof-EK-yoc">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="428"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jaw-2v-Y4W">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="433"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArtPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="4ZU-GZ-Ssw">
                                         <rect key="frame" x="32.5" y="78" width="256" height="256"/>
@@ -107,24 +107,36 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1d-y6-wmm">
-                                        <rect key="frame" x="27" y="391.5" width="266.5" height="20"/>
+                                        <rect key="frame" x="57" y="391.5" width="206.5" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000596046448" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1NA-qF-QUZ" userLabel="Duration Slider">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1NA-qF-QUZ" userLabel="Duration Slider">
                                         <rect key="frame" x="-2" y="428" width="324" height="11"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="FBf-D0-NMc"/>
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.90588235289999997" green="0.36078431370000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="maximumTrackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="maximumTrackTintColor" white="0.90000000000000002" alpha="0.638671875" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" red="0.90588235289999997" green="0.36078431370000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="didChangeTimeSliderValue:" destination="1IV-NX-tg4" eventType="valueChanged" id="yAd-9v-N7F"/>
+                                            <action selector="didChangeTimeSliderValue:forEvent:" destination="1IV-NX-tg4" eventType="valueChanged" id="K7j-MP-joK"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcN-QD-Xj8">
@@ -146,7 +158,8 @@
                                             <constraint firstAttribute="height" constant="65" id="rHV-UI-oBS"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="MPPause"/>
+                                        <state key="normal" image="music_play"/>
+                                        <state key="selected" image="pause"/>
                                         <connections>
                                             <action selector="didPressPlayPauseButton:" destination="1IV-NX-tg4" eventType="touchUpInside" id="DRE-f3-Aoh"/>
                                         </connections>
@@ -176,42 +189,47 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khalse X TassMoney" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-An-38p">
-                                        <rect key="frame" x="27" y="350" width="266.5" height="25.5"/>
+                                        <rect key="frame" x="57" y="350" width="206.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yWV-hZ-iyK">
+                                        <rect key="frame" x="150" y="485.5" width="20" height="20"/>
+                                        <color key="color" red="0.90588235289999997" green="0.36078431370000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="bU5-An-38p" firstAttribute="centerX" secondItem="oof-EK-yoc" secondAttribute="centerX" id="2pl-e7-aGj"/>
                                     <constraint firstItem="ihH-la-Mtb" firstAttribute="top" secondItem="xPb-0I-epR" secondAttribute="top" id="41v-tE-CQy"/>
                                     <constraint firstItem="1NA-qF-QUZ" firstAttribute="width" secondItem="7ko-Yw-Ntp" secondAttribute="width" id="4vn-WA-gvM"/>
-                                    <constraint firstAttribute="trailing" secondItem="oof-EK-yoc" secondAttribute="trailing" id="54z-xD-BGj"/>
                                     <constraint firstItem="xPb-0I-epR" firstAttribute="centerX" secondItem="7ko-Yw-Ntp" secondAttribute="centerX" id="8BW-hJ-t17"/>
                                     <constraint firstItem="s1d-y6-wmm" firstAttribute="top" secondItem="bU5-An-38p" secondAttribute="bottom" constant="16" id="BY8-YF-7AM"/>
+                                    <constraint firstItem="bU5-An-38p" firstAttribute="centerX" secondItem="4ZU-GZ-Ssw" secondAttribute="centerX" id="DpM-0W-cUC"/>
                                     <constraint firstItem="IcN-QD-Xj8" firstAttribute="top" secondItem="1NA-qF-QUZ" secondAttribute="bottom" constant="5" id="ETC-Ch-IEY"/>
                                     <constraint firstAttribute="bottom" secondItem="xPb-0I-epR" secondAttribute="bottom" constant="20" id="Esp-ss-Two"/>
                                     <constraint firstItem="4ZU-GZ-Ssw" firstAttribute="centerX" secondItem="7ko-Yw-Ntp" secondAttribute="centerX" id="IeA-Aa-4VQ"/>
                                     <constraint firstItem="30V-3T-tvD" firstAttribute="trailing" secondItem="xPb-0I-epR" secondAttribute="leading" constant="-25" id="JfC-Yz-Fkb"/>
+                                    <constraint firstItem="yWV-hZ-iyK" firstAttribute="centerY" secondItem="xPb-0I-epR" secondAttribute="centerY" id="JpB-f1-XFF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jaw-2v-Y4W" secondAttribute="trailing" id="L1d-eQ-TXr"/>
+                                    <constraint firstItem="1NA-qF-QUZ" firstAttribute="top" secondItem="Jaw-2v-Y4W" secondAttribute="bottom" constant="-5" id="LVI-JY-9Qf"/>
+                                    <constraint firstItem="yWV-hZ-iyK" firstAttribute="centerX" secondItem="xPb-0I-epR" secondAttribute="centerX" id="MGm-IC-fMm"/>
                                     <constraint firstItem="4ZU-GZ-Ssw" firstAttribute="width" secondItem="7ko-Yw-Ntp" secondAttribute="width" multiplier="1:1.25" id="OJg-1a-qUe"/>
                                     <constraint firstItem="bU5-An-38p" firstAttribute="top" secondItem="4ZU-GZ-Ssw" secondAttribute="bottom" constant="16" id="Oek-uN-HA7"/>
                                     <constraint firstItem="IcN-QD-Xj8" firstAttribute="leading" secondItem="1NA-qF-QUZ" secondAttribute="leading" constant="16" id="Wsr-xZ-CJU"/>
-                                    <constraint firstItem="bU5-An-38p" firstAttribute="width" secondItem="oof-EK-yoc" secondAttribute="width" multiplier="1:1.2" id="Ymg-4V-iuj"/>
                                     <constraint firstItem="jwV-oh-nJc" firstAttribute="top" secondItem="1NA-qF-QUZ" secondAttribute="bottom" constant="5" id="cZd-hr-kbE"/>
                                     <constraint firstAttribute="bottom" secondItem="1NA-qF-QUZ" secondAttribute="bottom" constant="110" id="cr6-n1-lpA"/>
                                     <constraint firstItem="jwV-oh-nJc" firstAttribute="trailing" secondItem="1NA-qF-QUZ" secondAttribute="trailing" constant="-16" id="d4U-a3-fjg"/>
-                                    <constraint firstItem="s1d-y6-wmm" firstAttribute="centerX" secondItem="oof-EK-yoc" secondAttribute="centerX" id="fR3-Lb-Lf1"/>
+                                    <constraint firstItem="Jaw-2v-Y4W" firstAttribute="top" secondItem="7ko-Yw-Ntp" secondAttribute="top" id="efY-iD-I7G"/>
                                     <constraint firstItem="4ZU-GZ-Ssw" firstAttribute="centerY" secondItem="7ko-Yw-Ntp" secondAttribute="centerY" multiplier="0.75" id="gmv-ER-MEA"/>
-                                    <constraint firstItem="oof-EK-yoc" firstAttribute="leading" secondItem="7ko-Yw-Ntp" secondAttribute="leading" id="iim-j9-zjq"/>
                                     <constraint firstItem="jwV-oh-nJc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7ko-Yw-Ntp" secondAttribute="leading" constant="20" symbolic="YES" id="jih-nn-Lou"/>
+                                    <constraint firstItem="s1d-y6-wmm" firstAttribute="centerX" secondItem="4ZU-GZ-Ssw" secondAttribute="centerX" id="jnN-Fp-aXX"/>
                                     <constraint firstItem="s1d-y6-wmm" firstAttribute="width" secondItem="bU5-An-38p" secondAttribute="width" id="mTQ-jo-ZJH"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IcN-QD-Xj8" secondAttribute="trailing" constant="20" symbolic="YES" id="mi1-om-zca"/>
-                                    <constraint firstItem="oof-EK-yoc" firstAttribute="top" secondItem="7ko-Yw-Ntp" secondAttribute="top" id="oVt-QE-api"/>
                                     <constraint firstItem="30V-3T-tvD" firstAttribute="top" secondItem="xPb-0I-epR" secondAttribute="top" id="on2-ej-8tz"/>
                                     <constraint firstItem="1NA-qF-QUZ" firstAttribute="centerX" secondItem="7ko-Yw-Ntp" secondAttribute="centerX" id="pJ6-8v-yxZ"/>
+                                    <constraint firstItem="Jaw-2v-Y4W" firstAttribute="leading" secondItem="7ko-Yw-Ntp" secondAttribute="leading" id="plu-BC-eR3"/>
                                     <constraint firstItem="ihH-la-Mtb" firstAttribute="leading" secondItem="xPb-0I-epR" secondAttribute="trailing" constant="25" id="tEq-Os-3ua"/>
-                                    <constraint firstItem="1NA-qF-QUZ" firstAttribute="top" secondItem="oof-EK-yoc" secondAttribute="bottom" id="tdy-ej-IOH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -227,11 +245,14 @@
                     </view>
                     <connections>
                         <outlet property="albumLabel" destination="s1d-y6-wmm" id="Hyl-fO-Mlv"/>
+                        <outlet property="backImage" destination="Jaw-2v-Y4W" id="zKQ-TZ-5lD"/>
                         <outlet property="currentTimeLabel" destination="IcN-QD-Xj8" id="ZAG-Ea-QSt"/>
                         <outlet property="forwardButton" destination="ihH-la-Mtb" id="a7y-X5-0fM"/>
+                        <outlet property="indicator" destination="yWV-hZ-iyK" id="E5M-29-P1n"/>
                         <outlet property="playPauseButton" destination="xPb-0I-epR" id="3iS-hD-7uz"/>
                         <outlet property="rewindButton" destination="30V-3T-tvD" id="oJz-Nc-QgA"/>
                         <outlet property="songLabel" destination="bU5-An-38p" id="RC0-EP-EOr"/>
+                        <outlet property="thumbImage" destination="4ZU-GZ-Ssw" id="KAz-N5-0k8"/>
                         <outlet property="timeSlider" destination="1NA-qF-QUZ" id="GKJ-wv-PXx"/>
                         <outlet property="trackDurationLabel" destination="jwV-oh-nJc" id="sDJ-s9-WLY"/>
                     </connections>
@@ -255,13 +276,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-Aw-IK1">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-Aw-IK1">
                                         <rect key="frame" x="0.0" y="-4" width="375" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.98431372549999996" green="0.30196078430000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" red="0.98431372549999996" green="0.30196078430000001" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="didChangeTimeSliderValue:" destination="Duo-Ru-mgU" eventType="valueChanged" id="yKU-Dj-9Q1"/>
+                                            <action selector="didChangeTimeSliderValue:forEvent:" destination="Duo-Ru-mgU" eventType="valueChanged" id="64P-p5-nPF"/>
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="87c-L1-rNT">
@@ -295,6 +316,10 @@
                                             <action selector="didPressRewindButton:" destination="Duo-Ru-mgU" eventType="touchUpInside" id="y8t-C0-na4"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="3y2-Iz-vWg">
+                                        <rect key="frame" x="285" y="22" width="20" height="20"/>
+                                        <color key="color" red="0.90588235289999997" green="0.36078431370000003" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we3-K8-Ru7">
                                         <rect key="frame" x="279" y="16.5" width="32" height="32"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,8 +327,8 @@
                                             <constraint firstAttribute="width" secondItem="we3-K8-Ru7" secondAttribute="height" id="eZG-es-XJE"/>
                                             <constraint firstAttribute="width" constant="32" id="ewD-zE-VuW"/>
                                         </constraints>
-                                        <state key="normal" image="music_play" backgroundImage="music_play_background"/>
-                                        <state key="selected" image="pause" backgroundImage="music_play_background"/>
+                                        <state key="normal" image="music_play"/>
+                                        <state key="selected" image="pause"/>
                                         <connections>
                                             <action selector="didPressPlayPauseButton:" destination="Duo-Ru-mgU" eventType="touchUpInside" id="szR-PH-pCW"/>
                                         </connections>
@@ -325,6 +350,7 @@
                                     <constraint firstItem="Kzl-ZU-Z5D" firstAttribute="leading" secondItem="wom-0a-MiP" secondAttribute="leading" constant="16" id="7ad-Rb-GG4"/>
                                     <constraint firstItem="0tK-7z-YGm" firstAttribute="width" secondItem="bYf-el-aqE" secondAttribute="width" id="A3r-cG-N1g"/>
                                     <constraint firstItem="0tK-7z-YGm" firstAttribute="height" secondItem="bYf-el-aqE" secondAttribute="height" id="C8s-E2-sm3"/>
+                                    <constraint firstItem="3y2-Iz-vWg" firstAttribute="centerX" secondItem="we3-K8-Ru7" secondAttribute="centerX" id="CQc-aG-URd"/>
                                     <constraint firstItem="oTX-aR-QQa" firstAttribute="top" secondItem="wom-0a-MiP" secondAttribute="top" id="Cjw-Uc-iv1"/>
                                     <constraint firstAttribute="bottom" secondItem="oTX-aR-QQa" secondAttribute="bottom" id="DMV-7x-A8U"/>
                                     <constraint firstItem="0tK-7z-YGm" firstAttribute="centerY" secondItem="bYf-el-aqE" secondAttribute="centerY" id="Laj-0E-wIV"/>
@@ -335,6 +361,7 @@
                                     <constraint firstItem="we3-K8-Ru7" firstAttribute="height" secondItem="bYf-el-aqE" secondAttribute="height" id="fsy-B5-6Pq"/>
                                     <constraint firstItem="oTX-aR-QQa" firstAttribute="leading" secondItem="wom-0a-MiP" secondAttribute="leading" id="iaV-lt-8fF"/>
                                     <constraint firstItem="87c-L1-rNT" firstAttribute="centerY" secondItem="Kzl-ZU-Z5D" secondAttribute="centerY" id="jHB-fU-IcH"/>
+                                    <constraint firstItem="3y2-Iz-vWg" firstAttribute="centerY" secondItem="we3-K8-Ru7" secondAttribute="centerY" id="jWi-4Y-VFw"/>
                                     <constraint firstAttribute="trailing" secondItem="0tK-7z-YGm" secondAttribute="trailing" constant="16" id="kgA-8Q-UgU"/>
                                     <constraint firstItem="LX3-Aw-IK1" firstAttribute="top" secondItem="wom-0a-MiP" secondAttribute="top" constant="-4" id="nKF-EZ-Ndt"/>
                                     <constraint firstItem="0tK-7z-YGm" firstAttribute="leading" secondItem="we3-K8-Ru7" secondAttribute="trailing" constant="16" id="ngh-CL-ToG"/>
@@ -359,9 +386,11 @@
                     <connections>
                         <outlet property="albumLabel" destination="2uQ-Fb-6by" id="sRC-WX-yvG"/>
                         <outlet property="forwardButton" destination="0tK-7z-YGm" id="zp9-Qx-bhD"/>
+                        <outlet property="indicator" destination="3y2-Iz-vWg" id="vkA-nv-yrs"/>
                         <outlet property="playPauseButton" destination="we3-K8-Ru7" id="4Wf-2h-kYi"/>
                         <outlet property="rewindButton" destination="bYf-el-aqE" id="Rej-Qa-7MP"/>
                         <outlet property="songLabel" destination="pUT-8R-0Vu" id="tic-1h-QbG"/>
+                        <outlet property="thumbImage" destination="Kzl-ZU-Z5D" id="A8Z-V0-CIA"/>
                         <outlet property="timeSlider" destination="LX3-Aw-IK1" id="Qds-Me-ScH"/>
                     </connections>
                 </viewController>
@@ -373,11 +402,9 @@
     <resources>
         <image name="ArtPlaceholder" width="48" height="48"/>
         <image name="MPForward" width="44" height="44"/>
-        <image name="MPPause" width="44" height="44"/>
         <image name="MPPrev" width="44" height="44"/>
         <image name="music_next" width="29" height="17"/>
         <image name="music_play" width="161" height="161"/>
-        <image name="music_play_background" width="23" height="23"/>
         <image name="music_prev" width="29" height="17"/>
         <image name="pause" width="161" height="161"/>
     </resources>
