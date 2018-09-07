@@ -14,8 +14,6 @@ public enum DynamicAttribute {
 	var key: String {
 		switch self {
 		case .duration 			: return "duration"
-//        case .commonMetadata     : return "commonMetadata"
-//        case .metadata             : return "metadata"
 		}
 	}
 }
@@ -58,13 +56,4 @@ public extension AVAsset {
 			}
 		}
 	}
-
-//    public func load(_ attribute: DynamicAttribute, completion: @escaping ((_ items: [AVMetadataItem]) -> Void)) {
-//        self.loadAttributeAsynchronously(attribute) {
-//            let metadataItems = self.loadedAttributeValue(for: attribute) as [AVMetadataItem]?
-//            DispatchQueue.main.async {
-//                completion(metadataItems ?? [])
-//            }
-//        }
-//    }
 }

@@ -26,13 +26,11 @@ class MiniPlayer: LNPopupCustomBarViewController {
     @IBOutlet fileprivate weak var indicator: UIActivityIndicatorView?
 
     override var wantsDefaultPanGestureRecognizer: Bool {
-        get {
-            return false
-        }
+        return false
     }
 
-    var changeManually = false
-    
+//    var changeManually = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +46,6 @@ class MiniPlayer: LNPopupCustomBarViewController {
         })
         // Listen to the playback time changed. Thirs event occurs every `AudioPlayerManager.PlayingTimeRefreshRate` seconds.
         AudioPlayerManager.shared.addPlaybackTimeChangeCallback(self, callback: { [weak self] (track: AudioTrack?) in
-
             self?.updatePlaybackTime(track)
         })
 
@@ -62,7 +59,7 @@ class MiniPlayer: LNPopupCustomBarViewController {
         AudioPlayerManager.shared.removePlayStateChangeCallback(self)
         AudioPlayerManager.shared.removePlaybackTimeChangeCallback(self)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshAll()
@@ -102,21 +99,21 @@ extension MiniPlayer {
     }
 
     @IBAction func didPressForwardButton(_ sender: AnyObject) {
-        AudioPlayerManager.shared.forward()
+        AudioPlayerManager.shared.forward(fource: true)
     }
 
     @IBAction func didChangeTimeSliderValue(_ sender: UISlider, forEvent event: UIEvent) {
         guard let newProgress = self.timeSlider?.value else {
-            AudioPlayerManager.shared.currentTrack?.showLoder = true
+//            AudioPlayerManager.shared.currentTrack?.showLoder = true
             play()
-            self.changeManually = false
+//            self.changeManually = false
             return
         }///
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                self.changeManually = true
-                AudioPlayerManager.shared.currentTrack?.showLoder = true
+//                self.changeManually = true
+//                AudioPlayerManager.shared.currentTrack?.showLoder = true
                 AudioPlayerManager.shared.pause()
                 self.playPauseButton?.isSelected = false
             case .moved:
@@ -129,16 +126,14 @@ extension MiniPlayer {
 
     func play() {
         self.playPauseButton?.isSelected = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            AudioPlayerManager.shared.play()
-            self.changeManually = false
-        }
+        AudioPlayerManager.shared.play()
+//        self.changeManually = false
     }
 
     func seekPlayer(newProgress: Float) {
         AudioPlayerManager.shared.seek(toProgress: newProgress)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            AudioPlayerManager.shared.currentTrack?.showLoder = true
+//            AudioPlayerManager.shared.currentTrack?.showLoder = true
             self.play()
         }
     }
@@ -186,9 +181,9 @@ extension MiniPlayer {
     }
 
     func updatePlaybackTime(_ track: AudioTrack?) {
-        if changeManually {
-            return
-        }
+//        if changeManually {
+//            return
+//        }
         if let trackData = track, !trackData.showLoder {
             self.timeSlider?.value = trackData.currentProgress()
         }

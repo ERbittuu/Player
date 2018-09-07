@@ -22,11 +22,45 @@ class AudioTracksQueue: NSObject {
 	}
 
 	fileprivate var queue					= [AudioTrack]()
+    fileprivate var backUpQueue                    = [AudioTrack]()
 	fileprivate var currentItemQueueIndex	= 0
 
 	fileprivate var history					= [AudioTrack]()
 
 	// MARK: - Set
+
+    func shuffle(doShuffle: Bool = true) {
+
+        if currentTrack == nil { return }
+
+        if doShuffle {
+            backUpQueue = queue
+            print(queue.map { ($0 as! AudioURLTrack).audioInfo?.title ?? "" })
+            print("before index", self.currentItemQueueIndex)
+            queue = queue.shuffled()
+            if let currentTrack = self.currentTrack,
+                let newIndex = self.queue.index(where: { (track) -> Bool in
+                    return currentTrack.identifier() == track.identifier()
+                }) {
+                self.currentItemQueueIndex = newIndex
+                print(queue.map { ($0 as! AudioURLTrack).audioInfo?.title ?? "" })
+                print("after new index", self.currentItemQueueIndex)
+            }
+            print(queue.map { ($0 as! AudioURLTrack).audioInfo?.title ?? "" })
+        } else {
+            print(queue.map { ($0 as! AudioURLTrack).audioInfo?.title ?? "" })
+            print("before index", self.currentItemQueueIndex)
+            if let currentTrack = self.currentTrack,
+                let newIndex = self.queue.index(where: { (track) -> Bool in
+                    return currentTrack.identifier() == track.identifier()
+                }) {
+                queue = backUpQueue
+                self.currentItemQueueIndex = newIndex
+                print(queue.map { ($0 as! AudioURLTrack).audioInfo?.title ?? "" })
+                print("after new index", self.currentItemQueueIndex)
+            }
+        }
+    }
 
 	func replace(_ tracks: [AudioTrack]?, at startIndex: Int) {
 		if let tracks = tracks {
@@ -60,14 +94,14 @@ class AudioTracksQueue: NSObject {
 
 	// MARK: - Forward
 
-	func canForward() -> Bool {
-		return (self.queue.isEmpty == false && self.followingTrack() != nil)
+	func canForward(fource: Bool = false) -> Bool {
+		return (self.queue.isEmpty == false && self.followingTrack(fource: fource) != nil)
 	}
 
-	func forward() -> Bool {
-		if (self.canForward() == true),
+	func forward(fource: Bool = false) -> Bool {
+		if (self.canForward(fource: fource) == true),
 			let currentTrack = self.currentTrack,
-			let followingTrack = self.followingTrack() {
+			let followingTrack = self.followingTrack(fource: fource) {
 				// Add current track to the history
 				currentTrack.cleanupAfterPlaying()
 				// Replace the current track with the new one
@@ -81,8 +115,8 @@ class AudioTracksQueue: NSObject {
 		return false
 	}
 
-	fileprivate func followingTrack() -> AudioTrack? {
-		let followingIndex = self.currentItemQueueIndex + 1
+	fileprivate func followingTrack(fource: Bool = false) -> AudioTrack? {
+        let followingIndex = self.currentItemQueueIndex + (fource ? 1 : 0)
 		if followingIndex < self.queue.count {
 			return self.queue[followingIndex]
 		}

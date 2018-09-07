@@ -11,6 +11,22 @@ import MediaPlayer
 
 open class AudioPlayerManager: NSObject {
 
+    var shufflePlayList: Bool = false {
+        didSet {
+            print(shufflePlayList)
+//            self.queue.queue.suff
+            self.queue.shuffle(doShuffle: shufflePlayList)
+            self.callPlayStateChangeCallbacks()
+        }
+    }
+
+    var repeatSong: Bool = false {
+        didSet {
+            print(repeatSong)
+            self.callPlayStateChangeCallbacks()
+        }
+    }
+
 	// MARK: - PUBLIC -
 
 	/// Strategy which should be used during the buffering.
@@ -210,9 +226,9 @@ open class AudioPlayerManager: NSObject {
 		return self.queue.canForward()
 	}
 
-	open func forward() {
+    open func forward(fource: Bool = false) {
 		self.stop()
-		if self.queue.forward() == true {
+		if self.queue.forward(fource: fource) == true {
 			self.restartCurrentTrack()
 		}
 	}
@@ -265,7 +281,7 @@ open class AudioPlayerManager: NSObject {
 	// MARK: - Internal helper
 
     @objc open func trackDidFinishPlaying() {
-		self.forward()
+		self.forward(fource: !self.repeatSong)
 	}
 
 	// MARK: - Playback time change callback

@@ -25,7 +25,7 @@ class AudioInfo {
     var image: UIImage?
 
     var albumString: String {
-        return (album.isEmpty || album == "Unknown") ? "Unknown" : title
+        return album.isEmpty ? "Unknown" : album
     }
 }
 
@@ -56,14 +56,16 @@ extension AudioInfo {
                                                            options: nil,
                                                            progressBlock: nil,
                                                            completionHandler: { image, _, _, _ in
-                                                            self.image = image
-                                                            MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: self.albumString,
-                                                                                 MPMediaItemPropertyAlbumTitle: self.albumString,
-                                                                                 MPMediaItemPropertyTitle: self.title,
-                                                                                 MPMediaItemPropertyArtwork: MPMediaItemArtwork(boundsSize: bSize, requestHandler: { (_) -> UIImage in
-                                                                                    return self.image ?? UIImage()
-                                                                                 })]
 
+                                                            DispatchQueue.main.async {
+                                                                self.image = image
+                                                                MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist: self.albumString,
+                                                                                                                   MPMediaItemPropertyAlbumTitle: self.albumString,
+                                                                                                                   MPMediaItemPropertyTitle: self.title,
+                                                                                                                   MPMediaItemPropertyArtwork: MPMediaItemArtwork(boundsSize: bSize, requestHandler: { (_) -> UIImage in
+                                                                                                                    return self.image ?? UIImage()
+                                                                                                                   })]
+                                                            }
                     })
                     return UIImage()
                 }
@@ -81,8 +83,8 @@ extension AudioInfo {
         audioInfo.artist = audio.artist
         audioInfo.album = audio.artist
         audioInfo.thumbnailImageUrl = URL(string: audio.imageURL)
+        audioInfo.image = audio.image
 
-        audioInfo.audio = audio.url.relativeString
         audioInfo.audio = audio.url.relativeString
         audioInfo.name = audio.title
         audioInfo.id = audio.id

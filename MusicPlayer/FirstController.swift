@@ -57,12 +57,11 @@ class FirstController: UIViewController {
     }
 
     @IBAction func playSongClicked(_ sender: UIButton) {
-        if let audio = DataSource.audioInfoList.first {
-            let audioFile = AudioInfo.from(audio: audio)
-
-            AudioPlayerManager.shared.playGTAudioInfo(audioInfo: audioFile)
-        }
-
+        // Add to queue
+    }
+    
+    @IBAction func playNextClicked(_ sender: UIButton) {
+        // play next
     }
 
     @IBAction func playListSongClicked(_ sender: UIButton) {
